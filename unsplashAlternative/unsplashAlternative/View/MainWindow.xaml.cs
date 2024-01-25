@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using unsplashAlternative.ViewModel.converters;
 
 namespace unsplashAlternative
 {
@@ -24,5 +25,11 @@ namespace unsplashAlternative
         {
             InitializeComponent();
         }
+        public async void ValamiGet()
+        {
+            unSplashImage[] images;
+            images = await unSplashHelper.ImageApi("", 1);
+        }
+
     }
 }
