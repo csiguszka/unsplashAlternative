@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace unsplashAlternative.ViewModel.converters
+namespace unsplashAlternative.ViewModel.helpers
 {
     public class unSplashHelper
     {
@@ -16,7 +16,7 @@ namespace unsplashAlternative.ViewModel.converters
 
         public const string API_KEY = "1vOpqq-6xkNAJpoz8MM_UiscPInlT43Dt4VE2bSa34c";
 
-        public static async Task<unSplashImage[]> ImageApi(string search, int page=1)
+        public static async Task<unSplashImage[]> ImageApi(string search, int page = 1)
         {
             unSplashImage[] images;
             string url = BASE_URL + string.Format(AUTOCOMPLETE_ENDPOINT, API_KEY, page);
