@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Windows;
 
-namespace unsplashAlternative.ViewModel.Helper
+namespace unsplashAlternative.ViewModel.converters
 {
     public class LinkToImage
     {
