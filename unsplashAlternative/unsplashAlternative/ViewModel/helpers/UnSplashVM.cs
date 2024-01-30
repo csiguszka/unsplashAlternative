@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using unsplashAlternative.ViewModel.commands;
+using unsplashAlternative.ViewModel.converters;
 
 namespace unsplashAlternative.ViewModel.helpers
 {
@@ -23,6 +25,7 @@ namespace unsplashAlternative.ViewModel.helpers
         public async void MakeQuery()
         {
             unSplashImage[] images = await unSplashHelper.ImageApi("", 1);
+            BitmapImage ImageBitmap = LinkToImage.linkToImage(images[0].urls.full);
         }
 
         private ICommand _searchCommand;
@@ -38,6 +41,15 @@ namespace unsplashAlternative.ViewModel.helpers
                 return _searchCommand;
             }
         }
+
+        private BitmapImage imageBitmap;
+
+        public BitmapImage ImageBitmap
+        {
+            get { return imageBitmap; }
+            set { imageBitmap = value; }
+        }
+
 
 
 
