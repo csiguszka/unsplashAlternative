@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:unsplashAlternative"
         xmlns:vm="clr-namespace:unsplashAlternative.ViewModel.helpers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920">
+        Title="UnSplash" Height="1080" Width="1920" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
         <vm:UnSplashVM x:Key="vm"/>
     </Window.Resources>
@@ -24,8 +24,9 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Keresés:" Margin="50,50,0,0" FontSize="32"></TextBlock>
                     <TextBox Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="300px" Height="40" FontSize="28" Margin="5,55,0,0"></TextBox>
-                    <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Command="{Binding SearchCommand}" Margin="100,53,0,0" Content=">" FontSize="32"></Button>
-                    <TextBlock Width="70" Height="50" TextAlignment="Center" FontSize="32" Text="6" Margin="0,53,0,0"></TextBlock>
+                    <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Command="{Binding SearchCommand}" Margin="10,53,0,0" Content="🔎" FontSize="28"></Button>
+                    <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Command="{Binding SearchCommand}" Margin="100,53,0,0" Content="&lt;" FontSize="32"></Button>
+                    <TextBlock Width="70" Height="50" TextAlignment="Center" FontSize="32" Text="1" Margin="0,53,0,0"></TextBlock>
                     <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Content=">" FontSize="32" Margin="0,53,0,0"></Button>
                 </StackPanel>
             </StackPanel>
