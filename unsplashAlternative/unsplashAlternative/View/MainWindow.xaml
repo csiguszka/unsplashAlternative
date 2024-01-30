@@ -6,12 +6,42 @@
         xmlns:local="clr-namespace:unsplashAlternative"
         xmlns:vm="clr-namespace:unsplashAlternative.ViewModel.helpers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <vm:UnSplashVM x:Key="vm"/>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource vm}">
-        <Button Command="{Binding SearchCommand}" Margin="0,0,589,306"></Button>
-        <Image Margin="290,112,145,49" Source="{Binding Images.results[0].urls.full}"></Image>
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Height="300px">
+                <StackPanel Orientation="Horizontal">
+                <Image Source="img/logo.png" Width="100px" Height="100px" VerticalAlignment="Top" Margin="50,50,0,0"></Image>
+                <StackPanel>
+                    <TextBlock Text="UNSPLASH" Width="300" Height="50" FontSize="31" FontWeight="Bold" Margin="10,50,0,0"/>
+                    <TextBlock Text="Böngéssz a képek között ingyen" FontWeight="DemiBold" FontSize="20" Margin="10,0,0,0"></TextBlock>
+                </StackPanel>
+              
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Keresés:" Margin="50,50,0,0" FontSize="32"></TextBlock>
+                    <TextBox Width="300px" Height="40" FontSize="28" Margin="5,55,0,0"></TextBox>
+                    <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Margin="100,53,0,0" Content=">" FontSize="32"></Button>
+                    <TextBlock Width="70" Height="50" TextAlignment="Center" FontSize="32" Text="6" Margin="0,53,0,0"></TextBlock>
+                    <Button Width="40" Height="40" Background="Transparent" BorderBrush="White" Content=">" FontSize="32" Margin="0,53,0,0"></Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="780px">
+                <ScrollViewer Width="1920">
+                    <WrapPanel>
+                        <Image Source="{Binding Image.results[0].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[1].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[2].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[3].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[4].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[5].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[6].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[7].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[8].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Image.results[9].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                    </WrapPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
