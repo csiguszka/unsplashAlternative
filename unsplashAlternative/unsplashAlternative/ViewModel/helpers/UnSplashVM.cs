@@ -19,7 +19,7 @@ namespace unsplashAlternative.ViewModel.helpers
 		public unSplashImage[] Images
 		{
 			get { return images; }
-			set { images = value; }
+			set { OnPropertyChanged(nameof(Images)); }
 		}
 
         private BitmapImage[] bitMapImages;
@@ -48,6 +48,7 @@ namespace unsplashAlternative.ViewModel.helpers
         {
             Images = await unSplashHelper.ImageApi("laptop", 1);
             ConvertImages();
+            images[0].urls.full = images[0].urls.full.Replace("&", "amp;");
         }
 
         private void ConvertImages()
