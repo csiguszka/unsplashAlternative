@@ -14,9 +14,9 @@ namespace unsplashAlternative.ViewModel.helpers
 {
     public class UnSplashVM : INotifyPropertyChanged
     {
-		private unSplashImage[] images;
+		private unSplashImage images;
 
-		public unSplashImage[] Images
+		public unSplashImage Images
 		{
 			get { return images; }
 			set 
@@ -52,15 +52,14 @@ namespace unsplashAlternative.ViewModel.helpers
         {
             Images = await unSplashHelper.ImageApi("laptop", 1);
             ConvertImages();
-            images[0].urls.full = images[0].urls.full.Replace("&", "amp;");
         }
 
         private void ConvertImages()
         {
-            BitmapImages = new BitmapImage[Images.Length];
-            for (int i = 0; i < Images.Length; i++)
+            BitmapImages = new BitmapImage[Images.results.Count];
+            for (int i = 0; i < Images.results.Count; i++)
             {
-                BitmapImages[i] = LinkToImage.linkToImage(Images[i].urls.full);
+                BitmapImages[i] = LinkToImage.linkToImage(Images.results[i].urls.full);
             }
         }
 
