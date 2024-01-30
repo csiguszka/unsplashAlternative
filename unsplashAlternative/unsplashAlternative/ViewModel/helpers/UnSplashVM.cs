@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using unsplashAlternative.ViewModel.commands;
-using unsplashAlternative.ViewModel.converters;
 
 namespace unsplashAlternative.ViewModel.helpers
 {
@@ -26,14 +25,6 @@ namespace unsplashAlternative.ViewModel.helpers
             }
 		}
 
-        private BitmapImage[] bitMapImages;
-
-        public BitmapImage[] BitmapImages
-        {
-            get { return bitMapImages; }
-            set { bitMapImages = value;} 
-        }
-
         private ICommand _searchCommand;
 
         public ICommand SearchCommand
@@ -50,17 +41,7 @@ namespace unsplashAlternative.ViewModel.helpers
 
         public async void MakeQuery()
         {
-            Images = await unSplashHelper.ImageApi("laptop", 1);
-            ConvertImages();
-        }
-
-        private void ConvertImages()
-        {
-            BitmapImages = new BitmapImage[Images.results.Count];
-            for (int i = 0; i < Images.results.Count; i++)
-            {
-                BitmapImages[i] = LinkToImage.linkToImage(Images.results[i].urls.full);
-            }
+            Images = await unSplashHelper.ImageApi("plug", 1);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
