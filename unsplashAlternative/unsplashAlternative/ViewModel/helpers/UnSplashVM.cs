@@ -19,7 +19,11 @@ namespace unsplashAlternative.ViewModel.helpers
 		public unSplashImage[] Images
 		{
 			get { return images; }
-			set { OnPropertyChanged(nameof(Images)); }
+			set 
+            {
+                images = value;
+                OnPropertyChanged(nameof(Images));
+            }
 		}
 
         private BitmapImage[] bitMapImages;

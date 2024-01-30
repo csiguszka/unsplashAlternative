@@ -13,6 +13,5 @@
     <Grid DataContext="{StaticResource vm}">
         <Button Command="{Binding SearchCommand}" Margin="0,0,589,306"></Button>
         <Image Margin="290,112,145,49" Source="{Binding Images[0].urls.full}"></Image>
-        <Label Content="{Binding Images[0].urls.full}" Margin="216,10,256,239"></Label>
     </Grid>
 </Window>
