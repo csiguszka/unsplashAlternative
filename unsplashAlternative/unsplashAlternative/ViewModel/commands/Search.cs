@@ -4,32 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using unsplashAlternative.ViewModel.helpers;
+
 
 namespace unsplashAlternative.ViewModel.commands
 {
     public class Search : ICommand
     {
-        event EventHandler? ICommand.CanExecuteChanged
+        public UnSplashVM? VM
         {
-            add
-            {
-                throw new NotImplementedException();
-            }
-
-            remove
-            {
-                throw new NotImplementedException();
-            }
+            get; set;
         }
 
-        bool ICommand.CanExecute(object? parameter)
+        public Search(UnSplashVM vm)
         {
-            throw new NotImplementedException();
+            VM = vm;
         }
 
-        void ICommand.Execute(object? parameter)
+        public event EventHandler? CanExecuteChanged;
+
+        public bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public void Execute(object? parameter)
+        {
+            VM.MakeQuery();
         }
     }
 }
