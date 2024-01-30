@@ -19,13 +19,15 @@ namespace unsplashAlternative.ViewModel.helpers
 		public unSplashImage[] Images
 		{
 			get { return images; }
-			set { OnPropertyChanged(nameof(Images)); }
+			set { images = value; }
 		}
 
-        public async void MakeQuery()
+        private BitmapImage[] bitMapImages;
+
+        public BitmapImage[] BitmapImages
         {
-            unSplashImage[] images = await unSplashHelper.ImageApi("", 1);
-            BitmapImage ImageBitmap = LinkToImage.linkToImage(images[0].urls.full);
+            get { return bitMapImages; }
+            set { bitMapImages = value;} 
         }
 
         private ICommand _searchCommand;
@@ -42,19 +44,22 @@ namespace unsplashAlternative.ViewModel.helpers
             }
         }
 
-        private BitmapImage imageBitmap;
-
-        public BitmapImage ImageBitmap
+        public async void MakeQuery()
         {
-            get { return imageBitmap; }
-            set { imageBitmap = value; }
+            Images = await unSplashHelper.ImageApi("laptop", 1);
+            ConvertImages();
         }
 
-
-
+        private void ConvertImages()
+        {
+            BitmapImages = new BitmapImage[Images.Length];
+            for (int i = 0; i < Images.Length; i++)
+            {
+                BitmapImages[i] = LinkToImage.linkToImage(Images[i].urls.full);
+            }
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
 		private void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

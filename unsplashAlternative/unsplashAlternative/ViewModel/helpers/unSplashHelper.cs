@@ -20,7 +20,7 @@ namespace unsplashAlternative.ViewModel.helpers
         {
             unSplashImage[] images;
             string url = BASE_URL + string.Format(AUTOCOMPLETE_ENDPOINT, API_KEY, page);
-            if (string.IsNullOrWhiteSpace(search))
+            if (!string.IsNullOrWhiteSpace(search))
             {
                 url += string.Format(SEARCH_ENDPOINT, search);
             }
