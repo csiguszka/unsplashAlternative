@@ -25,11 +25,6 @@ namespace unsplashAlternative
         {
             InitializeComponent();
         }
-        public async void ValamiGet()
-        {
-            unSplashImage[] images;
-            images = await unSplashHelper.ImageApi("", 1);
-        }
 
     }
 }

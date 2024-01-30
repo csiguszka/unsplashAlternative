@@ -24,8 +24,8 @@ namespace unsplashAlternative.ViewModel.helpers
 
         public async void MakeQuery()
         {
-            unSplashImage[] images = await unSplashHelper.ImageApi("Laptop", 1);
-            BitmapImage ImageBitmap = LinkToImage.linkToImage(images[0].urls.full);
+            unSplashImage images = await unSplashHelper.ImageApi("Laptop", 1);
+            BitmapImage ImageBitmap = LinkToImage.linkToImage(images.results[0].urls.full);
         }
 
         private ICommand _searchCommand;
