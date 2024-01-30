@@ -11,7 +11,7 @@ namespace unsplashAlternative.ViewModel.converters
 {
     public class LinkToImage
     {
-        public BitmapImage linkToImage(string imageUrl)
+        public static BitmapImage linkToImage(string imageUrl)
         {
             using (WebClient webClient = new WebClient())
             {

@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:unsplashAlternative"
+        xmlns:vm="clr-namespace:unsplashAlternative.ViewModel.helpers"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox ></TextBox>
+    <Window.Resources>
+        <vm:UnSplashVM x:Key="vm"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource vm}">
+        <Button Command="{Binding SearchCommand}" Margin="0,0,589,306"></Button>
+        <Image Margin="290,112,145,49" Source="{Binding ImageBitmap}"></Image>
     </Grid>
 </Window>
