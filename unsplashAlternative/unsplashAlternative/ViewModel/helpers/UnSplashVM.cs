@@ -25,6 +25,17 @@ namespace unsplashAlternative.ViewModel.helpers
             }
 		}
 
+        private string? query;
+        public string Query
+        {
+            get { return query; }
+            set
+            {
+                query = value;
+                OnPropertyChanged(nameof(Query));
+            }
+        }
+
         private ICommand _searchCommand;
 
         public ICommand SearchCommand
@@ -41,7 +52,7 @@ namespace unsplashAlternative.ViewModel.helpers
 
         public async void MakeQuery()
         {
-            Images = await unSplashHelper.ImageApi("plug", 1);
+            Images = await unSplashHelper.ImageApi(query, 1);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
