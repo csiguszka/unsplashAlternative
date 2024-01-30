@@ -32,16 +32,16 @@
             <StackPanel Orientation="Horizontal" Height="780px">
                 <ScrollViewer Width="1920">
                     <WrapPanel>
-                        <Image Source="{Binding Image.results[0].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[1].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[2].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[3].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[4].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[5].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[6].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[7].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[8].urls.full}" Width="300" Margin="50,50,0,0"></Image>
-                        <Image Source="{Binding Image.results[9].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[0].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[1].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[2].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[3].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[4].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[5].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[6].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[7].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[8].urls.full}" Width="300" Margin="50,50,0,0"></Image>
+                        <Image Source="{Binding Images.results[9].urls.full}" Width="300" Margin="50,50,0,0"></Image>
                     </WrapPanel>
                 </ScrollViewer>
             </StackPanel>
