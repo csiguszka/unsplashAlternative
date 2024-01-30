@@ -8,5 +8,12 @@ namespace unsplashAlternative.Model
 {
     public class Pager
     {
+        public int TotalPages { get; set; }
+        public int Page { get; set; }
+
+        public Pager()
+        {
+            Page = 1;
+        }
     }
 }
