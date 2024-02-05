@@ -15,6 +15,8 @@ namespace unsplashAlternative.ViewModel.converters
         {
             using (WebClient webClient = new WebClient())
             {
+                webClient.Headers.Add("user-agent", "Only a test!");
+
                 byte[] data = webClient.DownloadData(new Uri(imageUrl));
                 BitmapImage bitmapImage = new BitmapImage();
                 bitmapImage.BeginInit();

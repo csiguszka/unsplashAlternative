@@ -10,7 +10,8 @@
     <Window.Resources>
         <vm:UnSplashVM x:Key="vm"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource vm}">
+    <Grid DataContext="{StaticResource vm}" Margin="0,0,572,310">
         <Button Command="{Binding SearchCommand}"></Button>
+        <Image Source="{Binding }"></Image>
     </Grid>
 </Window>

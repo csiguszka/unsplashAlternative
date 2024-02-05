@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using unsplashAlternative.Model;
 using unsplashAlternative.ViewModel.commands;
+using unsplashAlternative.ViewModel.converters;
 
 namespace unsplashAlternative.ViewModel.helpers
 {
@@ -22,7 +24,10 @@ namespace unsplashAlternative.ViewModel.helpers
 
         public async void MakeQuery()
         {
-            unSplashImage[] images = await unSplashHelper.ImageApi("", 1);
+            unSplashImage[] images = await unSplashHelper.ImageApi("laptop", 1);
+            LinkToImage linkToImage = new LinkToImage();
+            var valami2 = linkToImage.linkToImage(images[0].links.download);
+            var valami = 1;
         }
 
         private ICommand _searchCommand;
