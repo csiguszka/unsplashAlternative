@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using unsplashAlternative.Model;
+using System.Windows.Media.Imaging;
 using unsplashAlternative.ViewModel.commands;
 using unsplashAlternative.ViewModel.converters;
 
@@ -14,20 +15,27 @@ namespace unsplashAlternative.ViewModel.helpers
 {
     public class UnSplashVM : INotifyPropertyChanged
     {
-		private unSplashImage[] images;
+		private unSplashImage images;
 
-		public unSplashImage[] Images
+		public unSplashImage Images
 		{
 			get { return images; }
-			set { OnPropertyChanged(nameof(Images)); }
+			set 
+            {
+                images = value;
+                OnPropertyChanged(nameof(Images));
+            }
 		}
 
-        public async void MakeQuery()
+        private string? query;
+        public string Query
         {
-            unSplashImage[] images = await unSplashHelper.ImageApi("laptop", 1);
-            LinkToImage linkToImage = new LinkToImage();
-            var valami2 = linkToImage.linkToImage(images[0].links.download);
-            var valami = 1;
+            get { return query; }
+            set
+            {
+                query = value;
+                OnPropertyChanged(nameof(Query));
+            }
         }
 
         private ICommand _searchCommand;
@@ -44,10 +52,12 @@ namespace unsplashAlternative.ViewModel.helpers
             }
         }
 
-
+        public async void MakeQuery()
+        {
+            Images = await unSplashHelper.ImageApi(query, 1);
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-
 		private void OnPropertyChanged(string propertyName)
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
