@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using unsplashAlternative.ViewModel.helpers;
 
-
 namespace unsplashAlternative.ViewModel.commands
 {
-    public class Search : ICommand
+    public class PagerUpSearch : ICommand
     {
         event EventHandler? ICommand.CanExecuteChanged
         {
@@ -21,7 +20,7 @@ namespace unsplashAlternative.ViewModel.commands
             get; set;
         }
 
-        public Search(UnSplashVM vm)
+        public PagerUpSearch(UnSplashVM vm)
         {
             VM = vm;
         }
@@ -30,7 +29,7 @@ namespace unsplashAlternative.ViewModel.commands
 
         public bool CanExecute(object? parameter)
         {
-            if (string.IsNullOrWhiteSpace(VM.Query))
+            if (string.IsNullOrWhiteSpace(VM.lastQuery))
             {
                 return false;
             }
@@ -39,7 +38,7 @@ namespace unsplashAlternative.ViewModel.commands
 
         public void Execute(object? parameter)
         {
-            VM.MakeQuery();
+            VM.MakeQueryUp();
         }
     }
 }

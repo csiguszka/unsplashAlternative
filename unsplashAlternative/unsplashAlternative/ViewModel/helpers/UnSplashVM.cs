@@ -9,7 +9,6 @@ using System.Windows.Input;
 using unsplashAlternative.Model;
 using System.Windows.Media.Imaging;
 using unsplashAlternative.ViewModel.commands;
-using unsplashAlternative.ViewModel.converters;
 
 namespace unsplashAlternative.ViewModel.helpers
 {
@@ -38,6 +37,17 @@ namespace unsplashAlternative.ViewModel.helpers
             }
         }
 
+        private int pager;
+        public int Pager
+        {
+            get { return pager; }
+            set
+            {
+                pager = value;
+                OnPropertyChanged(nameof(Pager));
+            }
+        }
+
         private ICommand _searchCommand;
 
         public ICommand SearchCommand
@@ -52,9 +62,54 @@ namespace unsplashAlternative.ViewModel.helpers
             }
         }
 
+        private ICommand _searchDown;
+
+        public ICommand SearchDown
+        {
+            get
+            {
+                if (_searchDown == null)
+                {
+                    _searchDown = new PagerDownSearch(this);
+                }
+                return _searchDown;
+            }
+        }
+
+        private ICommand _searchUp;
+
+        public ICommand SearchUp
+        {
+            get
+            {
+                if (_searchUp == null)
+                {
+                    _searchUp = new PagerUpSearch(this);
+                }
+                return _searchUp;
+            }
+        }
+
+        public string lastQuery { get; private set; }
+
         public async void MakeQuery()
         {
-            Images = await unSplashHelper.ImageApi(query, 1);
+            lastQuery = query;
+            Pager = 1;
+            Images = await unSplashHelper.ImageApi(query, Pager);
+            await Console.Out.WriteLineAsync();
+        }
+
+        public async void MakeQueryDown()
+        {
+            Pager -= 1;
+            Images = await unSplashHelper.ImageApi(lastQuery, Pager);
+        }
+
+        public async void MakeQueryUp()
+        {
+            Pager += 1;
+            Images = await unSplashHelper.ImageApi(lastQuery, Pager);
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
